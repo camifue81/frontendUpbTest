@@ -1,0 +1,254 @@
+:root {
+    --fondo: #f5f6f8;
+    --tarjeta: #ffffff;
+    --texto: #1d2330;
+    --suave: #5d6677;
+    --borde: #dde1e7;
+    --primario: #1f5fbf;
+    --primario-hover: #184c99;
+    --peligro: #c0392b;
+    --ok-fondo: #e7f6ec;
+    --ok-texto: #1e6b3a;
+    --error-fondo: #fdecea;
+    --error-texto: #a1281c;
+    color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --fondo: #12151b;
+        --tarjeta: #1b2029;
+        --texto: #e6e9ee;
+        --suave: #9aa3b2;
+        --borde: #2d3440;
+        --primario: #5b8def;
+        --primario-hover: #7aa3f2;
+        --peligro: #e5675a;
+        --ok-fondo: #173322;
+        --ok-texto: #8fd6a8;
+        --error-fondo: #3a1c19;
+        --error-texto: #f2a49b;
+        color-scheme: dark;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.5;
+}
+
+.contenedor {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 16px 48px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+h2 {
+    margin: 0 0 12px;
+    font-size: 1.15rem;
+}
+
+.sub {
+    margin: 4px 0 20px;
+    color: var(--suave);
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+}
+
+.tarjeta {
+    background: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 18px;
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 12px;
+    align-items: end;
+}
+
+.formulario label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.85rem;
+    color: var(--suave);
+}
+
+.acciones {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 8px;
+}
+
+input {
+    font: inherit;
+    color: var(--texto);
+    background: var(--fondo);
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    padding: 8px 10px;
+    min-width: 0;
+}
+
+input:focus {
+    outline: 2px solid var(--primario);
+    outline-offset: 1px;
+}
+
+button {
+    font: inherit;
+    border: 1px solid var(--primario);
+    background: var(--primario);
+    color: #fff;
+    border-radius: 6px;
+    padding: 7px 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--primario-hover);
+}
+
+button.secundario {
+    background: transparent;
+    color: var(--primario);
+}
+
+button.peligro {
+    background: transparent;
+    border-color: var(--peligro);
+    color: var(--peligro);
+}
+
+.cabecera-lista {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.cabecera-lista h2 {
+    margin: 0;
+}
+
+.buscador {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tabla-scroll {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--borde);
+    white-space: nowrap;
+}
+
+th {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--suave);
+}
+
+.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.fila-acciones {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-end;
+}
+
+.fila-acciones button {
+    padding: 4px 10px;
+    font-size: 0.85rem;
+}
+
+.vacio {
+    color: var(--suave);
+    margin: 8px 0;
+}
+
+.aviso {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 18px;
+}
+
+.aviso.ok {
+    background: var(--ok-fondo);
+    color: var(--ok-texto);
+}
+
+.aviso.error {
+    background: var(--error-fondo);
+    color: var(--error-texto);
+}
+
+.cerrar {
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-size: 1.2rem;
+    padding: 0 4px;
+}
+
+.cerrar:hover {
+    background: transparent;
+}
+
+.detalle {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 6px 16px;
+    margin: 0;
+}
+
+.detalle dt {
+    color: var(--suave);
+}
+
+.detalle dd {
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .formulario {
+        grid-template-columns: 1fr;
+    }
+}
